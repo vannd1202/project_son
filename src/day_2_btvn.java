@@ -24,7 +24,7 @@ public class day_2_btvn {
         /*
 
         //BÀI 1
-        int[] A = new int[]{-7, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11};
+        int[] A = new int[]{-7, 1, 2, 3, 4, 5, 0, 6, 7, 8, 9, 10, 11};
         //khai bao
         int dem1=0;
         int dem2=0;
@@ -47,7 +47,8 @@ public class day_2_btvn {
         }
         System.out.println("Vay mang A co" + dem2 + "so le");
 
-        */
+         */
+
 //--------------------------------------------------------------------------------
         /*
 
@@ -65,6 +66,7 @@ public class day_2_btvn {
         }
 
          */
+
 //---------------------------------------------------------------------------------
         /*
 
@@ -91,6 +93,7 @@ public class day_2_btvn {
         System.out.println(min + "la so nho nhat");
 
          */
+
 //---------------------------------------------------------------------------------
         /*
 
@@ -112,13 +115,15 @@ public class day_2_btvn {
         }
 
          */
+
 //---------------------------------------------------------------------------------
+        /*
 
         //BÀI 5
-        int[] A = new int[]{5, 2, 9, 9, 5, 9, 5};
+        int[] A = new int[]{5, 2, 9, 9, 5, 9, 9, 5};
         //khai báo
         int dem1 = 0;
-
+        int maxCount = A[0];
 
         //số xuất hiện nhiều nhất
         System.out.println("Số xuất hiện nhiều nhất là: ");
@@ -131,19 +136,21 @@ public class day_2_btvn {
             }
             if (dem2 > dem1) {
                 dem1 = dem2;
-
+                maxCount = A[i];
             }
-            if (dem2 == dem1) {
-                System.out.println(A[i]);
-            }
+//            if (dem2 == dem1) {
+//                System.out.println(A[i]);
+//            }
         }
         System.out.println("Số lần xuất hiện: " + dem1);
+        System.out.println("nhieu nhat" + maxCount);
+
+         */
 
 //----------------------------------------------------------------------------------
-        /*
 
         //BÀI 6
-        int[] A = new int[]{5, 9, 5, 9, 5, 9, 5};
+        int[] A = new int[]{5, 9, 5, 9, 5, 9, 5, 5};
         //khai báo
         int dem1 = A.length;
         int less = A[0];
@@ -164,6 +171,5 @@ public class day_2_btvn {
         System.out.println("Số xuất hiện ít nhất là: " + less);
         System.out.println("Số lần xuất hiện: " + dem1);
 
-         */
     }
 }
