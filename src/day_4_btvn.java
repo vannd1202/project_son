@@ -82,6 +82,19 @@ public class day_4_btvn {
         //BÀI 3
         String[] languge = new String[]{"java", "spring", "java", "react", "spring"};
         int k = 4;
-        Scanner sc = new Scanner(System.in);
+        int count =0;
+        boolean check = true;
+        while (check) {
+            System.out.println("Chuỗi có độ dài lớn hơn 4 là: ");
+            for (int i = 1; i <= k; i++) {
+                if (languge[i].length() <= k) {
+                    check = false;
+                }
+                if (languge[i].length() > k) {
+                    count++;
+                    System.out.println(languge[i]);
+                }
+            }
+        }
     }
 }
