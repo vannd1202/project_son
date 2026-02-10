@@ -1,5 +1,4 @@
 import java.util.Scanner;
-
 /*
 //BÀI 1: Cho người nhập vào số lượng màu bằng tiếng việt
 kết quả in ra là màu bằng tiếng anh
@@ -15,15 +14,15 @@ public class day_4 {
             String mang_mau[] = new String[so_luong];
             for (int i = 0; i < mang_mau.length; i++) {
                 System.out.println("nhập mau thứ " + (i + 1));
-                String color = scanner.next();
+                String color = scanner.nextLine();
                 mang_mau[i] = color;
             }
             for (int i = 0; i < mang_mau.length; i++) {
                 if(mang_mau[i].equals("đỏ")){
                     System.out.println("red");
-                } else if (mang_mau[i].equals("xanh la")) {
+                } else if (mang_mau[i].equals("xanh lá")) {
                     System.out.println("green");
-                } else if (mang_mau[i].equals("xanh duong")) {
+                } else if (mang_mau[i].equals("xanh dương")) {
                     System.out.println("blue");
                 } else if (mang_mau[i].equals("vàng")) {
                     System.out.println("yellow");
@@ -33,12 +32,10 @@ public class day_4 {
             }
 
             System.out.println("ban có muốn thoát không (y/n)");
-            scanner.nextLine();
             String exit = scanner.nextLine();
             if (!exit.equals("y")) {
                 exist = false;
             }
         }
-
     }
 }
