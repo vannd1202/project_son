@@ -96,5 +96,6 @@ public class day_4_btvn {
                 }
             }
         }
+        System.out.println("Số chuỗi có độ dài lớn hơn 4 là: " + count)
     }
 }
