@@ -86,7 +86,7 @@ public class day_4_btvn {
         boolean check = true;
         while (check) {
             System.out.println("Chuỗi có độ dài lớn hơn 4 là: ");
-            for (int i = 1; i <= k; i++) {
+            for (int i = 0; i <= k; i++) {
                 if (languge[i].length() <= k) {
                     check = false;
                 }
