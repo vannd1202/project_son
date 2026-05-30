@@ -18,7 +18,7 @@ public class day_4 {
                 mang_mau[i] = color;
             }
             for (int i = 0; i < mang_mau.length; i++) {
-                if(mang_mau[i].equals("đỏ")){
+                if (mang_mau[i].equals("đỏ")){
                     System.out.println("red");
                 } else if (mang_mau[i].equals("xanh lá")) {
                     System.out.println("green");

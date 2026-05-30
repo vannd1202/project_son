@@ -29,7 +29,7 @@ public class day_2_btvn {
         int dem1=0;
         int dem2=0;
 
-        //so chan
+        //Số chẵn
         for (int i = 0; i < A.length; i++) {
             if (A[i] % 2 == 0) {
                 System.out.println(A[i] + "la so chan");
@@ -38,7 +38,7 @@ public class day_2_btvn {
         }
         System.out.println("Vay mang A co" + dem1 + "so chan");
 
-        //so le
+        //Số lẻ
         for (int i = 0; i < A.length; i++) {
             if (A[i] % 2 != 0) {
                 System.out.println(A[i] + "la so le");
@@ -59,7 +59,7 @@ public class day_2_btvn {
         for (int i = 0; i < A.length; i++) {
             System.out.println(A[i]);
         }
-        //đảo ngược mảng và in ra màn hình
+        //Đảo ngược mảng và in ra màn hình
         System.out.println("Mang dao nguoc cua mang A là:");
         for (int i = A.length - 1; i >= 0; i--) {
             System.out.println(A[i]);
@@ -76,7 +76,7 @@ public class day_2_btvn {
         int max = A[0];
         int min = A[0];
 
-        //số lớn nhất
+        //Số lớn nhất
         for (int i = 0; i < A.length; i++) {
             if (A[i] > max) {
                 max = A[i];
@@ -84,7 +84,7 @@ public class day_2_btvn {
         }
         System.out.println(max + "la so lon nhat");
 
-        //số nhỏ nhất
+        //Số nhỏ nhất
         for (int i = 0; i < A.length; i++) {
             if (A[i] < min) {
                 min = A[i];
@@ -99,14 +99,14 @@ public class day_2_btvn {
 
         //BÀI 4
         int[] A = new int[]{-4, -2, 5, 7, 8, 10, 3, 22};
-        //chan
+        //Chẵn
         System.out.println("Danh sách các số chẵn:");
         for (int i = 0; i < A.length; i++) {
             if (A[i] % 2 == 0) {
                 System.out.println(A[i]);
             }
         }
-        //le
+        //Lẻ
         System.out.println("Danh sách các số lẻ:");
         for (int i = 0; i < A.length; i++) {
             if (A[i] % 2 != 0) {
@@ -125,7 +125,7 @@ public class day_2_btvn {
         int dem1 = 0;
         int maxCount = A[0];
 
-        //số xuất hiện nhiều nhất
+        //Số xuất hiện nhiều nhất
         System.out.println("Số xuất hiện nhiều nhất là: ");
         for (int i = 0; i < A.length; i++) {
             int dem2 = 0;
@@ -151,11 +151,11 @@ public class day_2_btvn {
 
         //BÀI 6
         int[] A = new int[]{5, 9, 5, 9, 5, 9, 5, 5};
-        //khai báo
+        //Khai báo
         int dem1 = A.length;
         int less = A[0];
 
-        //số xuất hiện ít nhất
+        //Số xuất hiện ít nhất
         for (int i = 0; i < A.length; i++) {
             int dem2 = 0;
             for (int j = 0; j < A.length; j++) {

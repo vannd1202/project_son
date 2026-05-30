@@ -13,88 +13,111 @@ tìm chuỗi ngắn nhất
  */
 public class day_4_btvn {
     public static void main(String[] args) {
-        /*
+/*
 
         //BÀI 1
-        String[] fruits = new String[] {"apple", "banana", "orange", "strawberry"};
-        int max = 0;
+        String[] fruits = new String[]{"apple", "banana", "orange", "strawberry"};
+//        int max = 0;
         String longest = fruits[0];
-        for (int i = 0; i < fruits.length; i++) {
-            if (max < fruits[i].length()) {
-                max = fruits[i].length();
-            }
-        }
+//        for (int i = 0; i < fruits.length; i++) {
+//            if (max < fruits[i].length()) {
+//                max = fruits[i].length();
+//            }
+//        }
         for (int i = 0; i < fruits.length; i++) {
             if (longest.length() < fruits[i].length()) {
                 longest = fruits[i];
             }
         }
-        System.out.println("Chuỗi dài nhất có độ dài là: " + max);
+        System.out.println("Chuỗi dài nhất có độ dài là: " + longest.length());
         System.out.println("Chuỗi dài nhất là: " + longest);
 
-         */
-
-        /*
 
         //BÀI 4
         String[] languge = new String[] {"java", "spring", "c", "react"};
-        int min = languge[0].length();
+//        int min = languge[0].length();
         String shortest = languge[0];
-        for (int i = 0; i < languge.length; i++) {
-            if (min > languge[i].length()) {
-                min = languge[i].length();
-            }
-        }
+//        for (int i = 0; i < languge.length; i++) {
+//            if (min > languge[i].length()) {
+//                min = languge[i].length();
+//            }
+//        }
         for (int i = 0; i < languge.length; i++) {
             if (shortest.length() > languge[i].length()) {
                 shortest = languge[i];
             }
         }
-        System.out.println("Chuỗi ngắn nhất có độ dài là: " + min);
+        System.out.println("Chuỗi ngắn nhất có độ dài là: " + shortest.length());
         System.out.println("Chuỗi ngắn nhất là: " + shortest);
 
-         */
-
-        /*
+*/
 
         //BÀI 2
-        String[] languge = new String[]{"java", "spring", "java", "react", "java"};
+        String languge = "java spring java react java";
+        String[] words = languge.split(" ");
         int count = 0;
+/*
+        //Cách 1 (dùng vòng while)
         boolean check = true;
-        Scanner scanner = new Scanner(System.in);
+//        Scanner scanner = new Scanner(System.in);
         while (check) {
-            System.out.println("Đang kiểm tra số lần xuất hiện chữ 'java'.....");
-            for (int i = 0; i < languge.length; i++) {
-                if (languge[i].equals("java")) {
+            System.out.println("Đang kiểm tra số lần xuất hiện chữ \"java\".....");
+            for (int i = 0; i < words.length; i++) {
+                if (words[i].equals("java")) {
                     count++;
+                }
+                if (!words[i].equals("java")) {
+                    check = false;
                 }
             }
             System.out.println("Chữ java xuất hiện " + count + " lần");
-            System.out.println("ban có muốn thoát không (y/n)");
-            String exit = scanner.nextLine();
-            if (exit.equals("y")) {
-                check = false;
+//            System.out.println("ban có muốn thoát không (y/n)");
+//            String exit = scanner.nextLine();
+//            if (exit.equals("y")) {
+//                check = false;
+//            }
+        }
+*/
+
+        //Cách 2 (dùng foreach)
+        for (String word : words) {
+            if (word.equals("java")) {
+                count++;
             }
         }
+        System.out.println("Chữ java xuất hiện " + count + " lần");
 
-         */
+/*
 
         //BÀI 3
-        String[] languge = new String[]{"java", "spring", "java", "react", "spring"};
+        String[] languge = new String[] {"java", "spring", "java", "react", "spring"};
         int k = 4;
-        int count =0;
+        int count = 0;
+        //Cách 1
         boolean check = true;
         while (check) {
             System.out.println("Chuỗi có độ dài lớn hơn 4 là: ");
-            for (int i = 1; i <= k; i++) {
-                if (languge[i].length() <= k) {
-                    check = false;
-                }
+            for (int i = 0; i <= k; i++) {
                 if (languge[i].length() > k) {
                     count++;
                     System.out.println(languge[i]);
+                } else if (languge[i].length() == k) {
+                    check = false;
                 }
             }
         }
+        System.out.println("Số chuỗi có độ dài lớn hơn 4 là " + count);
+
+        //Cách 2
+        for (int i = 0; i < languge.length; i++) {
+            if (languge[i].length() > k) {
+                count++;
+                System.out.println(languge[i]);
+            }
+        }
+        System.out.println("Số chuỗi có độ dài lớn hơn 4 là " + count);
+
+*/
+
     }
 }
