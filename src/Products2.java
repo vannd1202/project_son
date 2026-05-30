@@ -4,6 +4,7 @@ Nội dung bài tập ở class BaseObject
  */
 
 import java.util.ArrayList;
+import java.util.ConcurrentModificationException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -120,14 +121,17 @@ public class Products2 extends BaseObject {
 
     //Xóa sản phẩm
     public void removeProduct(){
-        System.out.println("Nhập tên sản phẩm cần xóa: ");
-        String name = scanner.nextLine();
-        for (Products2 product : products) {
-            if (product.getName().contains(name)) {
-                products.remove(product);
-                System.out.println("Đã xóa thành công!");
-                return;
+        try {
+            System.out.println("Nhập tên sản phẩm cần xóa: ");
+            String name = scanner.nextLine();
+            for (Products2 product : products) {
+                if (product.getName().contains(name)) {
+                    products.remove(product);
+                    System.out.println("Đã xóa thành công!");
+                }
             }
+        } catch (ConcurrentModificationException e) {
+            System.out.println("-----Lỗi Exception-----");
         }
         System.out.println("Không tìm thấy sản phẩm");
     }

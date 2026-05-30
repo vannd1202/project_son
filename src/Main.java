@@ -11,7 +11,7 @@ import java.util.Random;
 
 public class Main {
     public static void main(String[] args) {
-        Main main = new Main();
+//        Main main = new Main();
         DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
         Products2 products2 = new Products2();
 //        main.SetIdRandom();
