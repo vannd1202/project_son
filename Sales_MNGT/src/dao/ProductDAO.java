@@ -35,5 +35,29 @@ public class ProductDAO {
     }
 
     //2. Xem chi tiết sản phẩm
+    public Product getProductById(int productID) {
+        Product product = null;
+        String sql = "SELECT * FROM Product WHERE productID = ?";
 
+        try (
+                Connection conn = DBConnection.getConnection();
+                PreparedStatement ps = conn.prepareStatement(sql)
+        ) {
+            ps.setInt(1, productID);
+            ResultSet rs = ps.executeQuery();
+
+            if(rs.next()) {
+                product = new Product();
+
+                product.setProductID(rs.getInt("productID"));
+                product.setName(rs.getString("name"));
+                product.setPrice(rs.getInt("price"));
+                product.setDescription(rs.getString("description"));
+            }
+
+        } catch(SQLException e) {
+            e.printStackTrace();
+        }
+        return product;
+    }
 }

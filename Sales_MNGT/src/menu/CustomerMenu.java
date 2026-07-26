@@ -33,7 +33,15 @@ public class CustomerMenu {
                     }
                     break;
                 case 2:
-                    System.out.println("Xem chi tiết sản phẩm");
+                    System.out.print("Nhập ID sản phẩm cần xem: ");
+                    int productID = scanner.nextInt();
+                    Product product = productDAO.getProductById(productID);
+                    if(product != null) {
+                        System.out.println("Chi tiết sản phẩm:");
+                        System.out.println(product);
+                    } else {
+                        System.out.println("Không tìm thấy sản phẩm!");
+                    }
                     break;
                 case 3:
                     System.out.println("Tìm kiếm sản phẩm");
