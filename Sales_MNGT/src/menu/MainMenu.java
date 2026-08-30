@@ -1,10 +1,11 @@
 package menu;
 
+import java.sql.SQLException;
 import java.util.Scanner;
 
 public class MainMenu {
     Scanner scanner = new Scanner(System.in);
-    public void menuManage(){
+    public void menuManage() throws SQLException {
         while(true){
             System.out.println("====== MENU ======");
             System.out.println("1. Customer");

@@ -2,13 +2,15 @@ package menu;
 
 import dao.ProductDAO;
 import entity.Product;
+
+import java.sql.SQLException;
 import java.util.List;
 import java.util.Scanner;
 
 public class AdminMenu {
     ProductDAO productDAO = new ProductDAO();
     Scanner scanner = new Scanner(System.in);
-    public void menuManage(){
+    public void menuManage() throws SQLException {
         while (true) {
             System.out.println("========== ADMIN MENU ==========");
             System.out.println("1. Xem danh sách sản phẩm");
