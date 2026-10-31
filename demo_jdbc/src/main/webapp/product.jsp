@@ -19,6 +19,15 @@
         tr:nth-child(even) {
             background-color: #dddddd;
         }
+
+        a {
+            display: inline-block;
+            padding: 5px 10px;
+            background-color: #dc3545;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+        }
     </style>
 </head>
 <body>
@@ -28,8 +37,40 @@
         <form action="product" method="get">
             <input type="text" name="search"
                    placeholder="Nhập tên sản phẩm...">
+
+            <input type="number" name="minPrice"
+                   placeholder="Giá thấp nhất" min="0">
+
+            <input type="number" name="maxPrice"
+                   placeholder="Giá cao nhất" min="0">
+
+            <select name="sort">
+                   <option value="">-- Sắp xếp theo giá --</option>
+                   <option value="asc">Giá tăng dần</option>
+                   <option value="desc">Giá giảm dần</option>
+            </select>
+
             <button type="submit">Tìm kiếm</button>
         </form>
+
+         <div id="addForm" style="display: none;">
+             <h3>Thêm sản phẩm mới</h3>
+
+             <form action="product" method="post">
+                 <input type="hidden" name="action" value="add">
+
+                 <p>Tên: <input type="text" name="name" required></p>
+                 <p>URL ảnh: <input type="text" name="image" required></p>
+                 <p>Giá: <input type="number" name="price" required></p>
+                 <p>Số lượng: <input type="number" name="soluong" required></p>
+
+                 <button type="submit">Lưu sản phẩm</button>
+                 <button type="button"
+                         onclick="document.getElementById('addForm').style.display='none'">
+                     Hủy
+                 </button>
+             </form>
+         </div>
 
          <table>
            <tr>
@@ -52,13 +93,18 @@
                  <td>${item.price}</td>
                  <td>${item.soluong}</td>
                  <td>
-                     <a href="javascript:void(0)"
-                        onclick="document.getElementById('edit-${item.id}').style.display='table-row'">
+                     <button type="button"
+                             onclick="document.getElementById('addForm').style.display='block'">
+                         Thêm
+                     </button>
+
+                     <button type="button"
+                             onclick="document.getElementById('edit-${item.id}').style.display='table-row'">
                          Sửa
-                     </a>
-                     |
+                     </button>
+
                      <a href="product?action=delete&id=${item.id}"
-                        onclick="return confirm('Chắc chưa?')">
+                        onclick="return confirm('Bạn có chắc muốn xóa sản phẩm này không?')">
                          Xóa
                      </a>
                  </td>
