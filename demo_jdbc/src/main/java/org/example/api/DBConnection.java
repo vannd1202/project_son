@@ -14,7 +14,7 @@ public class DBConnection {
 
         String url = "jdbc:mysql://localhost:3306/demo?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Ho_Chi_Minh";
         String user = "root";
-        String pass = "12345678"; // Thay bằng mật khẩu MySQL trên máy của bạn
+        String pass = "12345678";
 
         return DriverManager.getConnection(url, user, pass);
     }
