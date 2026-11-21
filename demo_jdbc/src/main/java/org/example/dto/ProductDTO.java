@@ -1,61 +1,32 @@
 package org.example.dto;
 
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
+
 public class ProductDTO {
     private int id;
     private String name;
-    private String image;
-    private String price;
-    private String soluong;
+    private BigDecimal price;
+    private int soluong;
+    private List<String> images = new ArrayList<>();
 
-    public ProductDTO(int id, String name, String image, String price, String soluong) {
-        this.id = id;
-        this.name = name;
-        this.image = image;
-        this.price = price;
-        this.soluong = soluong;
-    }
+    public int getId() { return id; }
+    public void setId(int id) { this.id = id; }
 
-    public ProductDTO() {
+    public String getName() { return name; }
+    public void setName(String name) { this.name = name; }
 
-    }
+    public BigDecimal getPrice() { return price; }
+    public void setPrice(BigDecimal price) { this.price = price; }
 
-    public int getId() {
-        return id;
-    }
+    public int getSoluong() { return soluong; }
+    public void setSoluong(int soluong) { this.soluong = soluong; }
 
-    public void setId(int id) {
-        this.id = id;
-    }
+    public List<String> getImages() { return images; }
+    public void setImages(List<String> images) { this.images = images; }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getImage() {
-        return image;
-    }
-
-    public void setImage(String image) {
-        this.image = image;
-    }
-
-    public String getPrice() {
-        return price;
-    }
-
-    public void setPrice(String price) {
-        this.price = price;
-    }
-
-    public String getSoluong() {
-        return soluong;
-    }
-
-    public void setSoluong(String soluong) {
-        this.soluong = soluong;
+    public String getFirstImage() {
+        return images.isEmpty() ? "" : images.get(0);
     }
 }

@@ -1,156 +1,30 @@
-<%@ page contentType="text/html; charset=UTF-8" language="java" %>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
-<html>
-<head>
-    <title>Sản phẩm</title>
-    <style>
-        table {
-            font-family: Arial, sans-serif;
-            border-collapse: collapse;
-            width: 100%;
-        }
-
-        td, th {
-            border: 1px solid #dddddd;
-            text-align: left;
-            padding: 8px;
-        }
-
-        tr:nth-child(even) {
-            background-color: #dddddd;
-        }
-
-        a {
-            display: inline-block;
-            padding: 5px 10px;
-            background-color: #dc3545;
-            color: white;
-            text-decoration: none;
-            border-radius: 4px;
-        }
-    </style>
-</head>
-<body>
-    <center>
-        <h1>Danh Sách Sản Phẩm </h1>
-
-        <form action="product" method="get">
-            <input type="text" name="search"
-                   placeholder="Nhập tên sản phẩm...">
-
-            <input type="number" name="minPrice"
-                   placeholder="Giá thấp nhất" min="0">
-
-            <input type="number" name="maxPrice"
-                   placeholder="Giá cao nhất" min="0">
-
-            <select name="sort">
-                   <option value="">-- Sắp xếp theo giá --</option>
-                   <option value="asc">Giá tăng dần</option>
-                   <option value="desc">Giá giảm dần</option>
-            </select>
-
-            <button type="submit">Tìm kiếm</button>
-        </form>
-
-         <div id="addForm" style="display: none;">
-             <h3>Thêm sản phẩm mới</h3>
-
-             <form action="product" method="post">
-                 <input type="hidden" name="action" value="add">
-
-                 <p>Tên: <input type="text" name="name" required></p>
-                 <p>URL ảnh: <input type="text" name="image" required></p>
-                 <p>Giá: <input type="number" name="price" required></p>
-                 <p>Số lượng: <input type="number" name="soluong" required></p>
-
-                 <button type="submit">Lưu sản phẩm</button>
-                 <button type="button"
-                         onclick="document.getElementById('addForm').style.display='none'">
-                     Hủy
-                 </button>
-             </form>
-         </div>
-
-         <table>
-           <tr>
-             <th>Tên sản phẩm</th>
-             <th>Ảnh</th>
-             <th>Giá</th>
-             <th>Số lượng</th>
-             <th>Thao tác</th>
-           </tr>
-
-           <c:forEach var="item" items="${list_product}">
-               <tr>
-                 <td>${item.name}</td>
-                 <td>
-                    <img
-                        alt="Ảnh sản phẩm"
-                        src="${item.image}"
-                        style="width: 200px; background-color: transparent;">
-                 </td>
-                 <td>${item.price}</td>
-                 <td>${item.soluong}</td>
-                 <td>
-                     <button type="button"
-                             onclick="document.getElementById('addForm').style.display='block'">
-                         Thêm
-                     </button>
-
-                     <button type="button"
-                             onclick="document.getElementById('edit-${item.id}').style.display='table-row'">
-                         Sửa
-                     </button>
-
-                     <a href="product?action=delete&id=${item.id}"
-                        onclick="return confirm('Bạn có chắc muốn xóa sản phẩm này không?')">
-                         Xóa
-                     </a>
-                 </td>
-               </tr>
-
-               <tr id="edit-${item.id}" style="display: none;">
-                   <td colspan="5">
-                       <form action="product" method="post">
-                           <input type="hidden" name="action" value="update">
-                           <input type="hidden" name="id" value="${item.id}">
-
-                           <p>
-                               Tên:
-                               <input type="text" name="name"
-                                      value="${item.name}" required>
-                           </p>
-
-                           <p>
-                               URL ảnh:
-                               <input type="text" name="image"
-                                      value="${item.image}" required>
-                           </p>
-
-                           <p>
-                               Giá:
-                               <input type="number" name="price"
-                                      value="${item.price}" required>
-                           </p>
-
-                           <p>
-                               Số lượng:
-                               <input type="number" name="soluong"
-                                      value="${item.soluong}" required>
-                           </p>
-
-                           <button type="submit">Lưu thay đổi</button>
-                           <button type="button"
-                                   onclick="document.getElementById('edit-${item.id}').style.display='none'">
-                               Hủy
-                           </button>
-                       </form>
-                   </td>
-               </tr>
-           </c:forEach>
-         </table>
-    </center>
-
-</body>
-</html>
+<!DOCTYPE html><html lang="vi"><head><meta charset="UTF-8"><title>Sản phẩm</title><link rel="stylesheet" href="style.css"></head><body>
+<header><a class="brand" href="product">Cửa hàng máy tính</a><nav>
+<span>Xin chào, <b>${sessionScope.username}</b> (${sessionScope.role})</span>
+<a href="cart">Giỏ hàng</a><a href="logout">Đăng xuất</a></nav></header>
+<main><h1>Danh sách sản phẩm</h1>
+<form class="filter" action="product" method="get">
+<input name="search" value="${param.search}" placeholder="Tìm theo tên sản phẩm">
+<input type="number" name="minPrice" min="0" step="1" value="${param.minPrice}" placeholder="Giá từ">
+<input type="number" name="maxPrice" min="0" step="1" value="${param.maxPrice}" placeholder="Đến giá">
+<select name="sort"><option value="">Sắp xếp theo giá</option>
+<option value="asc" ${param.sort == 'asc' ? 'selected' : ''}>Giá tăng dần</option>
+<option value="desc" ${param.sort == 'desc' ? 'selected' : ''}>Giá giảm dần</option></select>
+<button type="submit">Lọc sản phẩm</button><a class="button secondary" href="product">Đặt lại</a>
+</form>
+<c:if test="${sessionScope.role == 'admin'}"><p><a class="button" href="product?action=add">+ Thêm sản phẩm</a></p></c:if>
+<div class="products"><c:forEach var="p" items="${products}">
+<div class="product-card">
+<a href="product?action=detail&id=${p.id}">
+<c:choose><c:when test="${not empty p.firstImage}"><img src="${p.firstImage}" alt="${p.name}"></c:when><c:otherwise><div class="no-image">Chưa có ảnh</div></c:otherwise></c:choose>
+<h3>${p.name}</h3></a>
+<p class="price"><c:out value="${p.price}"/> đ</p><p>Còn lại: ${p.soluong}</p>
+<a class="button" href="product?action=detail&id=${p.id}">Xem chi tiết</a>
+<c:if test="${sessionScope.role == 'admin'}">
+<a class="button secondary" href="product?action=edit&id=${p.id}">Sửa</a>
+<a class="button danger" href="product?action=delete&id=${p.id}" onclick="return confirm('Bạn chắc chắn muốn xóa?')">Xóa</a>
+</c:if></div></c:forEach></div>
+<c:if test="${empty products}"><p>Không tìm thấy sản phẩm phù hợp.</p></c:if>
+</main></body></html>
