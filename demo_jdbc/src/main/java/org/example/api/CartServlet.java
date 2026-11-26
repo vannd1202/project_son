@@ -14,7 +14,10 @@ public class CartServlet extends HttpServlet {
     private Map<Integer, Integer> getCart(HttpServletRequest req) {
         HttpSession session = req.getSession();
         Map<Integer, Integer> cart = (Map<Integer, Integer>) session.getAttribute("cart");
-        if (cart == null) { cart = new LinkedHashMap<>(); session.setAttribute("cart", cart); }
+        if (cart == null) {
+            cart = new LinkedHashMap<>();
+            session.setAttribute("cart", cart);
+        }
         return cart;
     }
 
