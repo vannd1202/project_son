@@ -7,7 +7,8 @@ public class CartItemDTO {
     private int quantity;
 
     public CartItemDTO(ProductDTO product, int quantity) {
-        this.product = product; this.quantity = quantity;
+        this.product = product;
+        this.quantity = quantity;
     }
 
     public ProductDTO getProduct() {
